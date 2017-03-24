@@ -23,6 +23,7 @@
             <props>
                 <prop key="index.htm">indexController</prop>
                 <prop key="Main.htm">MainController</prop>
+                <prop key="windowAdmin.htm">windowAdminController</prop>
             </props>
         </property>
     </bean>
@@ -39,5 +40,11 @@
     <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
+    
+    
+    <bean name="windowAdminController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="windowAdmin" />
+    
 
 </beans>
