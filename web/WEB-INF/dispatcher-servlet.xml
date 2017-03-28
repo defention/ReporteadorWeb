@@ -24,6 +24,7 @@
                 <prop key="index.htm">indexController</prop>
                 <prop key="Main.htm">MainController</prop>
                 <prop key="windowAdmin.htm">windowAdminController</prop>
+                <prop key="Rutas.htm">RutasController</prop>
             </props>
         </property>
     </bean>
@@ -45,6 +46,10 @@
     <bean name="windowAdminController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="windowAdmin" />
+    
+    <bean name="RutasController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="Rutas" />
     
 
 </beans>

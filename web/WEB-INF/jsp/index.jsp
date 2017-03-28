@@ -41,6 +41,9 @@
        </div><!-- /myNav --> 
        
        <button class="navbar-brand glyphicon glyphicon-log-in btn btn-lg btn-primary btn btn-signin" type="submit" onclick="openNav()"> Ingresar </button>
+       <div class="jumbotron ">
+       <img id="profile-img" src="img/logoFime_opt.png" />
+       </div>
               
 <!--       <nav class="navbar navbar-inverse">
             <div class="container-fluid">

@@ -32,20 +32,28 @@ public class InicioSesion extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
+       
         String user = request.getParameter("usuario");
         String pass = request.getParameter("password");
-        
         Login log = new Login();
-        if(log.validar(user, pass)){
-         response.sendRedirect("windowAdmin.htm");
-        }else{
-          response.sendRedirect("index.htm");
-        
-        
+        int type = log.validar(user, pass);
+        switch (type){
+            case 1: // Admin
+                response.sendRedirect("windowAdmin.htm");
+            break;
+            case 2: // Coordinador de prefectura
+                response.sendRedirect("index.htm");
+            break;
+            case 3: // Prefecto
+                System.out.println("\nprocessRequest 3 Pendiente");
+            break;
+            case 4: // Maestro
+                System.out.println("\nprocessRequest 4 Pendiente");
+            break;
+            default: // Acceso general
+                System.out.println("\nprocessRequest def Pendiente");
+            break;
         }
-        
-    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

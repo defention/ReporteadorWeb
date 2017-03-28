@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 
 public class Login extends Conexion {
     
-   public boolean validar (String user, String pass) {
+   public int validar (String user, String pass) {
     PreparedStatement pst = null;
     ResultSet rs = null;
     
@@ -16,11 +16,12 @@ public class Login extends Conexion {
          pst = getConexion().prepareStatement(consulta);
          pst.setString(1,user);
          pst.setString(2,pass);
-         
+       
          rs = pst.executeQuery();
          
          if(rs.absolute(1)){
-          return true;
+            rs.next();
+            return rs.getInt(rs.findColumn("type"));
          }
        } catch (Exception e) {
            System.err.println("Error al intentar validar el login" + e);
@@ -37,11 +38,11 @@ public class Login extends Conexion {
                System.err.println("Error al cerrar la conexion con la base de datos" + e);
            }
        }
-    return false;
+    return 0;
    } 
    
        public static void main (String[] args){
-        Login va = new Login();
-        System.out.println(va.validar("1393915","1393915"));    
+      //  Login va = new Login();
+      //  System.out.println(va.validar("1393915","1393915"));    
     }
 }
