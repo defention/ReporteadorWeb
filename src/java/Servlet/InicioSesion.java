@@ -42,7 +42,7 @@ public class InicioSesion extends HttpServlet {
                 response.sendRedirect("windowAdmin.htm");
             break;
             case 2: // Coordinador de prefectura
-                response.sendRedirect("index.htm");
+                response.sendRedirect("Main.htm");
             break;
             case 3: // Prefecto
                 System.out.println("\nprocessRequest 3 Pendiente");
