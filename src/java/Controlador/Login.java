@@ -1,48 +1,24 @@
-
 package Controlador;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import DAO.DAO_Usuario;
 
+public class Login  {
 
-public class Login extends Conexion {
-    
-   public int validar (String user, String pass) {
-    PreparedStatement pst = null;
-    ResultSet rs = null;
-    
-       try {
-         String consulta = "select * from usuario where user = ? and pass = ?";
-         pst = getConexion().prepareStatement(consulta);
-         pst.setString(1,user);
-         pst.setString(2,pass);
-       
-         rs = pst.executeQuery();
-         
-         if(rs.absolute(1)){
-            rs.next();
-            return rs.getInt(rs.findColumn("type"));
-         }
-       } catch (Exception e) {
-           System.err.println("Error al intentar validar el login" + e);
-       }finally {
-           try {
-               
-             if(getConexion() != null ) getConexion().close();
-             
-             if(pst != null) pst.close();
-             
-             if(rs != null) rs.close();
-             
-           } catch (Exception e) {
-               System.err.println("Error al cerrar la conexion con la base de datos" + e);
-           }
-       }
-    return 0;
-   } 
-   
-       public static void main (String[] args){
-      //  Login va = new Login();
-      //  System.out.println(va.validar("1393915","1393915"));    
+    public int validar(String user, String pass) {
+        try {
+            DAO_Usuario dao = new DAO_Usuario();// Esta es una mala practica los beans se buscan no se crean
+            Integer type = dao.getTypeUserByNamePassword(user, pass);
+            if (type != null && !type.equals(0)) {
+                return type;
+            }
+        } catch (Exception e) {
+            System.err.println("Error al intentar validar el login" + e);
+        }
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        //  Login va = new Login();
+        //  System.out.println(va.validar("1393915","1393915"));    
     }
 }

@@ -37,22 +37,26 @@ public class InicioSesion extends HttpServlet {
         String pass = request.getParameter("password");
         Login log = new Login();
         int type = log.validar(user, pass);
-        switch (type){
-            case 1: // Admin
-                response.sendRedirect("windowAdmin.htm");
-            break;
-            case 2: // Coordinador de prefectura
-                response.sendRedirect("Main.htm");
-            break;
-            case 3: // Prefecto
-                System.out.println("\nprocessRequest 3 Pendiente");
-            break;
-            case 4: // Maestro
-                System.out.println("\nprocessRequest 4 Pendiente");
-            break;
-            default: // Acceso general
-                System.out.println("\nprocessRequest def Pendiente");
-            break;
+        if(log.validar(user, pass) != 0){
+            switch (type){
+                case 1: // Admin
+                    response.sendRedirect("windowAdmin.htm");
+                break;
+                case 2: // Coordinador de prefectura
+                    response.sendRedirect("Rutas.htm");
+                break;
+                case 3: // Prefecto
+                    System.out.println("\nprocessRequest 3 Pendiente");
+                break;
+                case 4: // Maestro
+                    System.out.println("\nprocessRequest 4 Pendiente");
+                break;
+                default: // Acceso general
+                    System.out.println("\nprocessRequest def Pendiente");
+                break;
+            }
+        } else {
+            response.sendRedirect("index.htm");
         }
     }
 
