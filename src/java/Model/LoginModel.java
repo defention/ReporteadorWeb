@@ -1,7 +1,7 @@
 
 package Model;
 
-public class LoginBean {
+public class LoginModel {
 
     public String getName() {
         return name;

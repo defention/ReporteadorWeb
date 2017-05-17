@@ -40,13 +40,13 @@ public class InicioSesion extends HttpServlet {
         if(log.validar(user, pass) != 0){
             switch (type){
                 case 1: // Admin
-                    response.sendRedirect("windowAdmin.htm");
+                    response.sendRedirect("MenuAdmin.htm");
                 break;
                 case 2: // Coordinador de prefectura
                     response.sendRedirect("Rutas.htm");
                 break;
                 case 3: // Prefecto
-                    System.out.println("\nprocessRequest 3 Pendiente");
+                    response.sendRedirect("TeacherAssistenceReport.htm");
                 break;
                 case 4: // Maestro
                     System.out.println("\nprocessRequest 4 Pendiente");

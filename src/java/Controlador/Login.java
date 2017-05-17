@@ -1,9 +1,12 @@
 package Controlador;
 
 import DAO.DAO_Usuario;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
-public class Login  {
+public class Login {
 
+    @Transactional(propagation = Propagation.REQUIRED)
     public int validar(String user, String pass) {
         try {
             DAO_Usuario dao = new DAO_Usuario();// Esta es una mala practica los beans se buscan no se crean

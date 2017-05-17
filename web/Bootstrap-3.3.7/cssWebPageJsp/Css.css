@@ -8,11 +8,7 @@ and open the template in the editor.
     Author     : Java
 */
 
-body, html {
-    height: 100%;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(rgb(33, 102, 17), rgb(183, 195, 186));
-}
+
 
 .card-container.card {
     max-width: 350px;

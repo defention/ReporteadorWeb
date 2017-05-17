@@ -11,10 +11,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.sql.DataSource;
 
-/**
- *
- * @author Java
- */
 public class Conexion {
 
     private String userName = "root";
@@ -115,7 +111,7 @@ public class Conexion {
     }
 
     public DataSource getDataSource() {
-        if (dataSource==null) {
+        if (dataSource == null) {
             HikariDataSource ds = new HikariDataSource();
             ds.setPassword(password);
             ds.setUsername(userName);
@@ -129,6 +125,5 @@ public class Conexion {
     public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
     }
-    
-    
+
 }

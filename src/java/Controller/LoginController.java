@@ -1,6 +1,7 @@
 
-package Model;
+package Controller;
 
+import Model.LoginModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,7 +17,7 @@ public class LoginController {
     }
  
     @RequestMapping(method = RequestMethod.POST)
-    public String submit(Model model, @ModelAttribute("loginBean") LoginBean loginBean) {
+    public String submit(Model model, @ModelAttribute("loginBean") LoginModel loginBean) {
         if (loginBean != null && loginBean.getUsername()!= null & loginBean.getPassword() != null) {
             if (loginBean.getUsername().equals("chandra") && loginBean.getPassword().equals("chandra123")) {
                 model.addAttribute("msg", "welcome" + loginBean.getUsername());

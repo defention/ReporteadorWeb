@@ -23,8 +23,9 @@
             <props>
                 <prop key="index.htm">indexController</prop>
                 <prop key="Main.htm">MainController</prop>
-                <prop key="windowAdmin.htm">windowAdminController</prop>
+                <prop key="MenuAdmin.htm">MenuAdminController</prop>
                 <prop key="Rutas.htm">RutasController</prop>
+                <prop key="TeacherAssistenceReport.htm">TeacherAssistenceReportController</prop>
             </props>
         </property>
     </bean>
@@ -42,14 +43,20 @@
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
     
-    
-    <bean name="windowAdminController"
+<!--Bean para la pagina de Menu de administrador con su respectiva clase y viewName -->    
+    <bean name="MenuAdminController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
-          p:viewName="windowAdmin" />
-    
+          p:viewName="MenuAdmin" />
+
+<!--Bean para la pagina de rutas con su respectiva clase y viewName -->    
     <bean name="RutasController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="Rutas" />
+    
+<!--Bean para el reporte de asistencia de maestros con su respectiva clase y viewName -->
+    <bean name="TeacherAssistenceReportController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="TeacherAssistenceReport" />
     
 
 </beans>

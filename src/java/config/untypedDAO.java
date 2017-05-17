@@ -12,11 +12,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
  *
  * @author Java
  */
-public abstract class untypedDAO extends Conexion{
+public abstract class untypedDAO extends Conexion {
+
     private JdbcTemplate template;
-    
+
     public JdbcTemplate getTemplate() {
-        if(template == null) {
+        if (template == null) {
             template = new JdbcTemplate(getDataSource());
         }
         return template;
@@ -25,14 +26,14 @@ public abstract class untypedDAO extends Conexion{
     public void setTemplate(JdbcTemplate template) {
         this.template = template;
     }
-    
-    public <T extends Object> T searchObject(String query, Class<T> type){
+
+    public <T extends Object> T searchObject(String query, Class<T> type) {
         try {
             return getTemplate().queryForObject(query, type);
-        } catch (DataAccessException e){
+        } catch (DataAccessException e) {
             System.err.println("Query: " + query + " no regresa elementos: " + e);
             return null;
         }
     }
-    
+
 }
